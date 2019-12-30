@@ -5,5 +5,10 @@ export interface ISpFxHttpClientDemoState {
   Title: string;
   Cost: string;
   SelectedId: string;
-  Category: string;
+  SelectedItem: any;
+  Performance_x0020_Category: string;
+  AddButtonHidden: boolean;
+  UpdateButtonHidden: boolean;
+  Status: string;
+  showDiv: boolean;
 }

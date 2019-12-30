@@ -3,15 +3,18 @@
   "version": "2.0",
   "bundles": {
     "sp-fx-http-client-demo-web-part": {
-      "components": [
-        {
-          "entrypoint": "./lib/webparts/spFxHttpClientDemo/SpFxHttpClientDemoWebPart.js",
-          "manifest": "./src/webparts/spFxHttpClientDemo/SpFxHttpClientDemoWebPart.manifest.json"
-        }
-      ]
+      "components": [{
+        "entrypoint": "./lib/webparts/spFxHttpClientDemo/SpFxHttpClientDemoWebPart.js",
+        "manifest": "./src/webparts/spFxHttpClientDemo/SpFxHttpClientDemoWebPart.manifest.json"
+      }]
     }
   },
-  "externals": {},
+  "externals": {
+    "bootstrap": {
+      "path": "node_modules/bootstrap/dist/js/bootstrap.min.js",
+      "globalName": "bootstrap"
+    }
+  },
   "localizedResources": {
     "SpFxHttpClientDemoWebPartStrings": "lib/webparts/spFxHttpClientDemo/loc/{locale}.js"
   }
