@@ -136,6 +136,7 @@ export default class SpFxHttpClientDemo extends React.Component<
             Cost: "",
             Title: "",
             AddButtonHidden: true,
+            showDiv: false,
             UpdateButtonHidden: false
           });
         }
@@ -152,7 +153,7 @@ export default class SpFxHttpClientDemo extends React.Component<
     var selectedId = event.target.getAttribute("data-item");
     var title = event.target.getAttribute("title");
 
-    this.setState({ SelectedId: selectedId, Title: title });
+    this.setState({ SelectedId: selectedId, Title: title, showDiv: true });
     this.getListItemOnPage(selectedId);
     console.log(selectedId);
   };
@@ -410,11 +411,13 @@ export default class SpFxHttpClientDemo extends React.Component<
       )
       .then(
         (response: SPHttpClientResponse): void => {
+          console.log("Item updated...");
           this.setState({
             Status: `Item with ID: ${this.state.SelectedId} successfully updated`,
             UpdateButtonHidden: true,
             AddButtonHidden: false,
             Title: "",
+            showDiv: false,
             Cost: "",
             Performance_x0020_Category: "",
             SelectedId: ""
@@ -452,12 +455,13 @@ export default class SpFxHttpClientDemo extends React.Component<
     this._onAddListItem();
   };
 
-  onUpdateListItemClicked = event => {
+  OnUpdateClicked = event => {
     event.preventDefault();
 
     let title = this.state.Title;
     let cost = this.state.Cost;
     let category = this.state.Performance_x0020_Category;
+
     this._updateListItem(this.state.SelectedId);
   };
 
@@ -589,7 +593,7 @@ export default class SpFxHttpClientDemo extends React.Component<
                 hidden={this.state.UpdateButtonHidden}
                 id="updaterecord"
                 className="btn btn-primary"
-                onClick={this.onUpdateListItemClicked}
+                onClick={this.OnUpdateClicked}
               >
                 <span className={styles.label}>Update Record</span>
               </a>
